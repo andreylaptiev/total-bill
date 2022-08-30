@@ -20,6 +20,7 @@ class BillValueView: UIView {
     let textField: UITextField = {
         let field = UITextField()
         field.backgroundColor = #colorLiteral(red: 0.9561659694, green: 0.9591339231, blue: 0.9530903697, alpha: 1)
+        field.tintColor = #colorLiteral(red: 0.639077723, green: 0.2492567599, blue: 0.6254395843, alpha: 1)
         field.layer.cornerRadius = 8.0
         field.textColor = .black
         field.font = UIFont(name: "Avenir Next Bold", size: 40)

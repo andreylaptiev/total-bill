@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A163398B28BC74DD00DEBC7A /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163398A28BC74DD00DEBC7A /* TipsView.swift */; };
+		A163398D28BC7DC700DEBC7A /* TipsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163398C28BC7DC700DEBC7A /* TipsCollectionViewCell.swift */; };
 		A1ECA59428BB22900095489D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ECA59328BB22900095489D /* AppDelegate.swift */; };
 		A1ECA59628BB22900095489D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ECA59528BB22900095489D /* SceneDelegate.swift */; };
 		A1ECA59828BB22900095489D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ECA59728BB22900095489D /* MainViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A163398A28BC74DD00DEBC7A /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
+		A163398C28BC7DC700DEBC7A /* TipsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A1ECA59028BB22900095489D /* TotalBill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TotalBill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1ECA59328BB22900095489D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1ECA59528BB22900095489D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A163398728BC747C00DEBC7A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1ECA59728BB22900095489D /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A163398828BC748D00DEBC7A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1ECA5A728BB430C0095489D /* BillValueView.swift */,
+				A1ECA5A928BB56310095489D /* PersonsCounterView.swift */,
+				A163398A28BC74DD00DEBC7A /* TipsView.swift */,
+				A163398C28BC7DC700DEBC7A /* TipsCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A163398928BC749E00DEBC7A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A1ECA59328BB22900095489D /* AppDelegate.swift */,
+				A1ECA59528BB22900095489D /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		A1ECA58728BB22900095489D = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +90,12 @@
 		A1ECA59228BB22900095489D /* TotalBill */ = {
 			isa = PBXGroup;
 			children = (
-				A1ECA59328BB22900095489D /* AppDelegate.swift */,
-				A1ECA59528BB22900095489D /* SceneDelegate.swift */,
-				A1ECA59728BB22900095489D /* MainViewController.swift */,
+				A163398928BC749E00DEBC7A /* App */,
+				A163398728BC747C00DEBC7A /* Controllers */,
+				A163398828BC748D00DEBC7A /* Views */,
 				A1ECA59C28BB22910095489D /* Assets.xcassets */,
 				A1ECA59E28BB22910095489D /* LaunchScreen.storyboard */,
 				A1ECA5A128BB22910095489D /* Info.plist */,
-				A1ECA5A728BB430C0095489D /* BillValueView.swift */,
-				A1ECA5A928BB56310095489D /* PersonsCounterView.swift */,
 			);
 			path = TotalBill;
 			sourceTree = "<group>";
@@ -140,9 +170,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A163398B28BC74DD00DEBC7A /* TipsView.swift in Sources */,
 				A1ECA5AA28BB56310095489D /* PersonsCounterView.swift in Sources */,
 				A1ECA59828BB22900095489D /* MainViewController.swift in Sources */,
 				A1ECA5A828BB430C0095489D /* BillValueView.swift in Sources */,
+				A163398D28BC7DC700DEBC7A /* TipsCollectionViewCell.swift in Sources */,
 				A1ECA59428BB22900095489D /* AppDelegate.swift in Sources */,
 				A1ECA59628BB22900095489D /* SceneDelegate.swift in Sources */,
 			);

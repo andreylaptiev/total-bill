@@ -8,6 +8,8 @@
 import UIKit
 
 class PersonsCounterView: UIView {
+    var counter = 0
+
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Persons"
@@ -25,25 +27,29 @@ class PersonsCounterView: UIView {
         return view
     }()
 
+    let counterButtonImageConfig: UIImage.SymbolConfiguration = {
+        let imageSizeConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .default)
+        let imageColorConfig = UIImage.SymbolConfiguration(hierarchicalColor: #colorLiteral(red: 0.4513477087, green: 0.4857000113, blue: 0.5633345246, alpha: 1))
+        let imageConfig = imageSizeConfig.applying(imageColorConfig)
+        return imageConfig
+    }()
+
     lazy var decrementButton: UIButton = {
         let button = UIButton(type: .system)
-        let imageSizeConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .default)
-        let imageColorConfig = UIImage.SymbolConfiguration(hierarchicalColor: .black)
-        let imageConfig = imageSizeConfig.applying(imageColorConfig)
-        let minusImage = UIImage(systemName: "minus", withConfiguration: imageConfig)
+        let minusImage = UIImage(systemName: "minus", withConfiguration: counterButtonImageConfig)
         button.setImage(minusImage, for: .normal)
+        button.isEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(decrementCounter), for: .touchUpInside)
         return button
     }()
 
     lazy var incrementButton: UIButton = {
         let button = UIButton(type: .system)
-        let imageSizeConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .large)
-        let imageColorConfig = UIImage.SymbolConfiguration(hierarchicalColor: .black)
-        let imageConfig = imageSizeConfig.applying(imageColorConfig)
-        let plusImage = UIImage(systemName: "plus", withConfiguration: imageConfig)
+        let plusImage = UIImage(systemName: "plus", withConfiguration: counterButtonImageConfig)
         button.setImage(plusImage, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(incrementCounter), for: .touchUpInside)
         return button
     }()
 
@@ -82,6 +88,19 @@ class PersonsCounterView: UIView {
         addSubview(counterContainer)
     }
 
+    @objc func decrementCounter() {
+        counter -= 1
+        counterLabel.text = "\(counter)"
+        if counter == 0 {
+            decrementButton.isEnabled = false
+        }
+    }
+
+    @objc func incrementCounter() {
+        counter += 1
+        counterLabel.text = "\(counter)"
+        decrementButton.isEnabled = true
+    }
 
     func setConstraints() {
         NSLayoutConstraint.activate([
