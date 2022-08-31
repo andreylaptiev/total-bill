@@ -14,7 +14,6 @@ class PersonsCounterView: UIView {
         let label = UILabel()
         label.text = "Persons"
         label.textColor = #colorLiteral(red: 0.1882352941, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
-        label.font = UIFont(name: "Avenir Next", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -28,16 +27,14 @@ class PersonsCounterView: UIView {
     }()
 
     let counterButtonImageConfig: UIImage.SymbolConfiguration = {
-        let imageSizeConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .default)
-        let imageColorConfig = UIImage.SymbolConfiguration(hierarchicalColor: #colorLiteral(red: 0.4513477087, green: 0.4857000113, blue: 0.5633345246, alpha: 1))
-        let imageConfig = imageSizeConfig.applying(imageColorConfig)
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .default)
         return imageConfig
     }()
 
     lazy var decrementButton: UIButton = {
         let button = UIButton(type: .system)
-        let minusImage = UIImage(systemName: "minus", withConfiguration: counterButtonImageConfig)
-        button.setImage(minusImage, for: .normal)
+        button.setImage(UIImage(systemName: "minus", withConfiguration: counterButtonImageConfig), for: .normal)
+        button.tintColor = #colorLiteral(red: 0.4513477087, green: 0.4857000113, blue: 0.5633345246, alpha: 1)
         button.isEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(decrementCounter), for: .touchUpInside)
@@ -46,8 +43,8 @@ class PersonsCounterView: UIView {
 
     lazy var incrementButton: UIButton = {
         let button = UIButton(type: .system)
-        let plusImage = UIImage(systemName: "plus", withConfiguration: counterButtonImageConfig)
-        button.setImage(plusImage, for: .normal)
+        button.setImage(UIImage(systemName: "plus", withConfiguration: counterButtonImageConfig), for: .normal)
+        button.tintColor = #colorLiteral(red: 0.4513477087, green: 0.4857000113, blue: 0.5633345246, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(incrementCounter), for: .touchUpInside)
         return button
@@ -57,7 +54,6 @@ class PersonsCounterView: UIView {
         let label = UILabel()
         label.text = "0"
         label.textColor = .black
-        label.font = UIFont(name: "Avenir Next Bold", size: 40)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -74,6 +70,14 @@ class PersonsCounterView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        titleLabel.font = UIFont(name: "Avenir Next", size: frame.size.height * 0.13)
+        counterLabel.font = UIFont(name: "Avenir Next Bold", size: frame.size.height * 0.38)
     }
 
 
@@ -109,7 +113,7 @@ class PersonsCounterView: UIView {
             counterContainer.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
             counterContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
             counterContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
-            counterContainer.heightAnchor.constraint(equalToConstant: 80),
+            counterContainer.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.76),
 
             decrementButton.leadingAnchor.constraint(equalTo: counterContainer.leadingAnchor),
             decrementButton.centerYAnchor.constraint(equalTo: counterContainer.centerYAnchor),

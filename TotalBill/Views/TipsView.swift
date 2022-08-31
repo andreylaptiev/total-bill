@@ -17,7 +17,6 @@ class TipsView: UIView {
         let title = UILabel()
         title.text = "Tips"
         title.textColor = #colorLiteral(red: 0.1882352941, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
-        title.font = UIFont(name: "Avenir Next", size: 14)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -41,6 +40,13 @@ class TipsView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        titleLabel.font = UIFont(name: "Avenir Next", size: frame.size.height * 0.13)
     }
 
 
@@ -107,7 +113,7 @@ extension TipsView {
             collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 80)
+            collectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.76)
         ])
     }
 }

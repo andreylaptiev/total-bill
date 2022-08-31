@@ -12,7 +12,6 @@ class BillValueView: UIView {
         let label = UILabel()
         label.text = "Total bill"
         label.textColor = #colorLiteral(red: 0.1882352941, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
-        label.font = UIFont(name: "Avenir Next", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -44,6 +43,14 @@ class BillValueView: UIView {
     }
 
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        titleLabel.font = UIFont(name: "Avenir Next", size: frame.size.height * 0.13)
+        textField.font = UIFont(name: "Avenir Next Bold", size: frame.size.height * 0.38)
+    }
+
+
     func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
@@ -58,7 +65,7 @@ class BillValueView: UIView {
             textField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
             textField.leadingAnchor.constraint(equalTo: leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: trailingAnchor),
-            textField.heightAnchor.constraint(equalToConstant: 80)
+            textField.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.76)
         ])
     }
 }
